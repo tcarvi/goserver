@@ -31,5 +31,5 @@ Minimum Server written in golang
 ```
 127.0.0.1           localhost
 ::1                 localhost
-yourDomain.com      localhost:8080
+[hostname].com      localhost:8080
 ```
