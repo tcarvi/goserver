@@ -72,7 +72,7 @@ func tServeAPI(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/javascript; charset=utf-8")
 	w.Header().Set("Content-Language", "pt-br")
 	// TCARVI headers
-	w.Header().Set("TCARVI-Code", "00000000001")
+	w.Header().Set("key-Code", "00000000001")
 	//Serve Files
 	http.ServeFile(w, r, "../../../../../webapp"+r.URL.Path)
 
@@ -99,7 +99,7 @@ func tServeJs(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/javascript; charset=utf-8")
 	w.Header().Set("Content-Language", "pt-br")
 	// TCARVI headers
-	w.Header().Set("TCARVI-Code", "00000000001")
+	w.Header().Set("key-Code", "00000000001")
 	//Serve Files
 	http.ServeFile(w, r, "../../../../../webapp/"+strings.TrimSuffix(r.Host, ":8080")+r.URL.Path)
 }
@@ -112,7 +112,7 @@ func tServeCss(w http.ResponseWriter, r *http.Request) {
 	// Message
 	w.Header().Set("Content-Type", "text/css; charset=utf-8")
 	// TCARVI headers
-	w.Header().Set("TCARVI-Code", "00000000001")
+	w.Header().Set("key-Code", "00000000001")
 	//Serve Files
 	http.ServeFile(w, r, "../../../../../webapp/"+strings.TrimSuffix(r.Host, ":8080")+r.URL.Path)
 
@@ -138,7 +138,7 @@ func tServeSvg(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "image/svg+xml; charset=utf-8")
 	w.Header().Set("Content-Language", "pt-br")
 	// TCARVI headers
-	w.Header().Set("TCARVI-Code", "00000000001")
+	w.Header().Set("key-Code", "00000000001")
 	//Serve File
 	http.ServeFile(w, r, "../../../../../webapp/svg"+r.URL.Path)
 }
@@ -160,7 +160,7 @@ func tServeHtml(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8") //Chrome OK
 	w.Header().Set("Content-Language", "pt-br")                //Chrome OK
 	// TCARVI headers
-	w.Header().Set("TCARVI-Code", "00000000001")
+	w.Header().Set("key-Code", "00000000001")
 	//Serve File
 	http.ServeFile(w, r, "../../../../../webapp/"+strings.TrimSuffix(r.Host, ":8080")+"/index.html")
 
@@ -189,7 +189,7 @@ func tServeLayout(w http.ResponseWriter, r *http.Request) {
 	// Message
 	w.Header().Set("Content-Type", "text/css; charset=utf-8")
 	// TCARVI headers
-	w.Header().Set("TCARVI-Code", "00000000001")
+	w.Header().Set("key-Code", "00000000001")
 	//Serve Files
 	http.ServeFile(w, r, "../../../../../webapp"+r.URL.Path)
 }
@@ -200,7 +200,7 @@ func tServeIco(w http.ResponseWriter, r *http.Request) {
 	// Message
 	w.Header().Set("Content-Type", "image/x-icon")
 	// TCARVI headers
-	w.Header().Set("TCARVI-Code", "00000000001")
+	w.Header().Set("key-Code", "00000000001")
 	http.ServeFile(w, r, "../../../../../webapp/"+strings.TrimSuffix(r.Host, ":8080")+r.URL.Path)
 }
 
@@ -210,7 +210,7 @@ func tServeJpeg(w http.ResponseWriter, r *http.Request) {
 	// Message
 	w.Header().Set("Content-Type", "image/jpeg")
 	// TCARVI headers
-	w.Header().Set("TCARVI-Code", "00000000001")
+	w.Header().Set("key-Code", "00000000001")
 	//Serve Files
 	http.ServeFile(w, r, "../../../../../webapp/jpeg"+r.URL.Path)
 }
@@ -221,7 +221,7 @@ func tServePng(w http.ResponseWriter, r *http.Request) {
 	// Message
 	w.Header().Set("Content-Type", "image/png")
 	// TCARVI headers
-	w.Header().Set("TCARVI-Code", "00000000001")
+	w.Header().Set("key-Code", "00000000001")
 	//Serve Files
 	http.ServeFile(w, r, "../../../../../webapp/png"+r.URL.Path)
 }
@@ -232,7 +232,7 @@ func tServePdf(w http.ResponseWriter, r *http.Request) {
 		// Message
 		w.Header().Set("Content-Type", "/pdf")
 		// TCARVI headers
-		w.Header().Set("TCARVI-Code", "00000000001")
+		w.Header().Set("key-Code", "00000000001")
 		//Serve Files
 	http.ServeFile(w, r, "../../../../../webapp/pdf"+r.URL.Path)
 }
@@ -242,7 +242,7 @@ func tServeFile(w http.ResponseWriter, r *http.Request) {
 		// Message
 		w.Header().Set("Content-Type", "charset=utf-8")
 		// TCARVI headers
-		w.Header().Set("TCARVI-Code", "00000000001")
+		w.Header().Set("key-Code", "00000000001")
 	http.ServeFile(w, r, "../../../../../webapp"+r.URL.Path)
 }
 
