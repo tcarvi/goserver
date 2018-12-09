@@ -1,7 +1,5 @@
 /*
- *
- * Server for HTML, File and Text request
- *
+ * Server for HTML, File, Texts and Database requests
  */
 package main
 
@@ -246,10 +244,11 @@ func tServeFile(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "../../../../../webapp"+r.URL.Path)
 }
 
-// TODO: func database()
+// TODO: func database() string
 // 	db, err := sql.Open("postgres", "user=postgres dbname=np sslmode=disable")
-// 	dealError(err)
-// 	defer db.Close()
+
+// TODO: func answer(q Question) Answer
+// a, err := ai.Answers(q)
 
 func main() {
 	var d THandler
