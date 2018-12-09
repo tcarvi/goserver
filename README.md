@@ -25,3 +25,11 @@ Minimum Server written in golang
     -  [webapp root] / webapp / jpg / images.jpg
 - **PDF files**:
     -  [webapp root] / webapp / pdf / files.pdf
+
+#### Obs.:
+- To run on localhost, you must edit your hosts file (/etc/hosts in linux):
+```
+127.0.0.1           localhost
+::1                 localhost
+yourDomain.com      localhost:8080
+```
