@@ -201,7 +201,7 @@ func tServeIco(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "image/x-icon")
 	// TCARVI headers
 	w.Header().Set("TCARVI-Code", "00000000001")
-	http.ServeFile(w, r, "../../../../../webapp/ico"+r.URL.Path)
+	http.ServeFile(w, r, "../../../../../webapp/"+strings.TrimSuffix(r.Host, ":8080")+r.URL.Path)
 }
 
 func tServeJpeg(w http.ResponseWriter, r *http.Request) {
