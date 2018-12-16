@@ -9,25 +9,10 @@ import (
 	"strings"
 	"time"
 	"log"
-	"os"
 )
 
-//  Implemenetation of http.Handler Interface: https://godoc.org/net/http#Handler
 type THandler int
 func (tHandler THandler) ServeHTTP(w http.ResponseWriter, r *http.Request){
-
-	// For debug: http.Request fields
-	fmt.Println("Debug: r.URL.Path = " + r.URL.Path)
-	fmt.Println("Debug: r.URL.Host = " + r.URL.Host)
-	fmt.Println("Debug: r.Method = " + r.Method)
-	fmt.Println("Debug: r.Proto = " + r.Proto)
-	fmt.Println("Debug: r.Host = " + r.Host)
-	
-	dir, err := os.Getwd()
-	if err != nil {
-		log.Fatal(err)
-	}
-  	fmt.Println(dir)
 
 	if strings.HasPrefix(r.URL.Path, "/api"){
 		fmt.Println("Debug: tServeAPI")
@@ -80,19 +65,6 @@ func tServeAPI(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("key-Code", "00000000001")
 	//Serve Files
 	http.ServeFile(w, r, "github.com/tcarvi"+r.URL.Path)
-
-	// Response Headers
-	// HTTP/1.1 200 OK
-	// Accept-Ranges: bytes
-	// Cache-Control: no-cache
-	// Content-Language: pt-br
-	// Content-Type: text/javascript; charset=utf-8
-	// Host: tcarvi.com
-	// Last-Modified: Sun, 09 Dec 2018 21:08:40 GMT
-	// Tcarvi-Code: 00000000001
-	// Transfer-Encoding: gzip
-	// Date: Sun, 09 Dec 2018 21:10:32 GMT
-	// Transfer-Encoding: chunked
 }
 
 func tServeJs(w http.ResponseWriter, r *http.Request) {
@@ -120,18 +92,6 @@ func tServeCss(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("key-Code", "00000000001")
 	//Serve Files
 	http.ServeFile(w, r, "github.com/tcarvi/"+strings.TrimSuffix(r.Host, ":8080")+r.URL.Path)
-
-	// Response Headers
-	// HTTP/1.1 200 OK
-	// Accept-Ranges: bytes
-	// Cache-Control: no-cache
-	// Content-Type: text/css; charset=utf-8
-	// Host: tcarvi.com
-	// Last-Modified: Sun, 09 Dec 2018 21:09:02 GMT
-	// Tcarvi-Code: 00000000001
-	// Transfer-Encoding: gzip
-	// Date: Sun, 09 Dec 2018 21:10:32 GMT
-	// Transfer-Encoding: chunked
 }
 
 func tServeSvg(w http.ResponseWriter, r *http.Request) {
@@ -158,9 +118,6 @@ func tServeHtml(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Cache-Control", "no-cache") //Chrome OK
 	w.Header().Set("Host", "tcarvi.com")    //Chrome OK
 	w.Header().Set("Date", time.Now().Format(time.UnixDate))
-	// time.UnixDate: "Sat Mar  4 22:08:50 BRT 2017"
-	// time.RFC3339:  "2017-03-04T22:05:21-03:00"
-	// time.ANSIC     "Sat Mar  4 22:06:41 2017"
 	// Message
 	w.Header().Set("Content-Type", "text/html; charset=utf-8") //Chrome OK
 	w.Header().Set("Content-Language", "pt-br")                //Chrome OK
@@ -168,22 +125,6 @@ func tServeHtml(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("key-Code", "00000000001")
 	//Serve File
 	http.ServeFile(w, r, "github.com/tcarvi/"+strings.TrimSuffix(r.Host, ":8080")+"/index.html")
-
-	// Response Headers
-	// HTTP/1.1 200 OK
-	// Accept-Ranges: bytes
-	// Cache-Control: no-cache
-	// Content-Language: pt-br
-	// Content-Type: text/html; charset=utf-8
-	// Date: Sun Dec  9 19:10:32 -02 2018
-	// Host: tcarvi.com
-	// Http-Version: HTTP/2.0
-	// Last-Modified: Sun, 09 Dec 2018 21:09:34 GMT
-	// Protocol: HTTP/2.0
-	// Tcarvi-Code: 00000000001
-	// Transfer-Encoding: gzip
-	// X-Firefox-Spdy: h2
-	// Transfer-Encoding: chunked
 }
 
 func tServeLayout(w http.ResponseWriter, r *http.Request) {
@@ -250,6 +191,8 @@ func tServeFile(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("key-Code", "00000000001")
 	http.ServeFile(w, r, "github.com/tcarvi"+r.URL.Path)
 }
+
+// TODO - Remove text "/tcarvi" from this code.
 
 // TODO: func database() string
 // 	db, err := sql.Open("postgres", "user=postgres dbname=np sslmode=disable")
