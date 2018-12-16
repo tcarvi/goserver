@@ -9,6 +9,7 @@ import (
 	"strings"
 	"time"
 	"log"
+	"os"
 )
 
 //  Implemenetation of http.Handler Interface: https://godoc.org/net/http#Handler
@@ -22,6 +23,12 @@ func (tHandler THandler) ServeHTTP(w http.ResponseWriter, r *http.Request){
 	fmt.Println("Debug: r.Proto = " + r.Proto)
 	fmt.Println("Debug: r.Host = " + r.Host)
 	
+	dir, err := os.Getwd()
+	if err != nil {
+		log.Fatal(err)
+	}
+  	fmt.Println(dir)
+
 	if strings.HasPrefix(r.URL.Path, "/api"){
 		fmt.Println("Debug: tServeAPI")
 		tServeAPI(w, r)
@@ -72,7 +79,7 @@ func tServeAPI(w http.ResponseWriter, r *http.Request) {
 	// To be handled by webapp
 	w.Header().Set("key-Code", "00000000001")
 	//Serve Files
-	http.ServeFile(w, r, "../../../../../webapp"+r.URL.Path)
+	http.ServeFile(w, r, "github.com/tcarvi"+r.URL.Path)
 
 	// Response Headers
 	// HTTP/1.1 200 OK
@@ -99,7 +106,7 @@ func tServeJs(w http.ResponseWriter, r *http.Request) {
 	// To be handled by webapp
 	w.Header().Set("key-Code", "00000000001")
 	//Serve Files
-	http.ServeFile(w, r, "../../../../../webapp/"+strings.TrimSuffix(r.Host, ":8080")+r.URL.Path)
+	http.ServeFile(w, r, "github.com/tcarvi/"+strings.TrimSuffix(r.Host, ":8080")+r.URL.Path)
 }
 
 func tServeCss(w http.ResponseWriter, r *http.Request) {
@@ -112,7 +119,7 @@ func tServeCss(w http.ResponseWriter, r *http.Request) {
 	// To be handled by webapp
 	w.Header().Set("key-Code", "00000000001")
 	//Serve Files
-	http.ServeFile(w, r, "../../../../../webapp/"+strings.TrimSuffix(r.Host, ":8080")+r.URL.Path)
+	http.ServeFile(w, r, "github.com/tcarvi/"+strings.TrimSuffix(r.Host, ":8080")+r.URL.Path)
 
 	// Response Headers
 	// HTTP/1.1 200 OK
@@ -138,7 +145,7 @@ func tServeSvg(w http.ResponseWriter, r *http.Request) {
 	// To be handled by webapp
 	w.Header().Set("key-Code", "00000000001")
 	//Serve File
-	http.ServeFile(w, r, "../../../../../webapp/svg"+r.URL.Path)
+	http.ServeFile(w, r, "github.com/tcarvi/svg"+r.URL.Path)
 }
 
 func tServeHtml(w http.ResponseWriter, r *http.Request) {
@@ -160,7 +167,7 @@ func tServeHtml(w http.ResponseWriter, r *http.Request) {
 	// To be handled by webapp
 	w.Header().Set("key-Code", "00000000001")
 	//Serve File
-	http.ServeFile(w, r, "../../../../../webapp/"+strings.TrimSuffix(r.Host, ":8080")+"/index.html")
+	http.ServeFile(w, r, "github.com/tcarvi/"+strings.TrimSuffix(r.Host, ":8080")+"/index.html")
 
 	// Response Headers
 	// HTTP/1.1 200 OK
@@ -189,7 +196,7 @@ func tServeLayout(w http.ResponseWriter, r *http.Request) {
 	// To be handled by webapp
 	w.Header().Set("key-Code", "00000000001")
 	//Serve Files
-	http.ServeFile(w, r, "../../../../../webapp"+r.URL.Path)
+	http.ServeFile(w, r, "github.com/tcarvi"+r.URL.Path)
 }
 
 func tServeIco(w http.ResponseWriter, r *http.Request) {
@@ -199,7 +206,7 @@ func tServeIco(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "image/x-icon")
 	// To be handled by webapp
 	w.Header().Set("key-Code", "00000000001")
-	http.ServeFile(w, r, "../../../../../webapp/"+strings.TrimSuffix(r.Host, ":8080")+r.URL.Path)
+	http.ServeFile(w, r, "github.com/tcarvi"+strings.TrimSuffix(r.Host, ":8080")+r.URL.Path)
 }
 
 func tServeJpeg(w http.ResponseWriter, r *http.Request) {
@@ -210,7 +217,7 @@ func tServeJpeg(w http.ResponseWriter, r *http.Request) {
 	// To be handled by webapp
 	w.Header().Set("key-Code", "00000000001")
 	//Serve Files
-	http.ServeFile(w, r, "../../../../../webapp/jpeg"+r.URL.Path)
+	http.ServeFile(w, r, "github.com/tcarvi/jpeg"+r.URL.Path)
 }
 
 func tServePng(w http.ResponseWriter, r *http.Request) {
@@ -221,7 +228,7 @@ func tServePng(w http.ResponseWriter, r *http.Request) {
 	// To be handled by webapp
 	w.Header().Set("key-Code", "00000000001")
 	//Serve Files
-	http.ServeFile(w, r, "../../../../../webapp/png"+r.URL.Path)
+	http.ServeFile(w, r, "github.com/tcarvi/png"+r.URL.Path)
 }
 
 func tServePdf(w http.ResponseWriter, r *http.Request) {
@@ -232,7 +239,7 @@ func tServePdf(w http.ResponseWriter, r *http.Request) {
 		// To be handled by webapp
 		w.Header().Set("key-Code", "00000000001")
 		//Serve Files
-	http.ServeFile(w, r, "../../../../../webapp/pdf"+r.URL.Path)
+	http.ServeFile(w, r, "github.com/tcarvi/pdf"+r.URL.Path)
 }
 func tServeFile(w http.ResponseWriter, r *http.Request) {
 		// Connection
@@ -241,7 +248,7 @@ func tServeFile(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "charset=utf-8")
 		// To be handled by webapp
 		w.Header().Set("key-Code", "00000000001")
-	http.ServeFile(w, r, "../../../../../webapp"+r.URL.Path)
+	http.ServeFile(w, r, "github.com/tcarvi"+r.URL.Path)
 }
 
 // TODO: func database() string

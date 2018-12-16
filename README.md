@@ -3,33 +3,41 @@ Minimum Server written in golang
 
 #### Structure of Directories:
 - **Golang Server**:
-    -  [webapp root] / src / github.com / tcarvi / tserver / main.go
-- **Index file**:
-    -  [webapp root] / webapp / [hostname] /index.html
-- **API scripts**:
-    -  [webapp root] / webapp / api / apiScripts.js
-- **General CSS**:
-    -  [webapp root] / webapp / layout / normalize.css
-    -  [webapp root] / webapp / layout / boilerplate.css
-- **Js scripts**:
-    -  [webapp root] / webapp / [hostname] / js / scripts.js
-- **CSS files**:
-    -  [webapp root] / webapp / [hostname] / css /designFiles.css
-- **ICO image**:
-    -  [webapp root] / webapp / [hostname] / favicon.ico
-- **SVG images**:
-    -  [webapp root] / webapp / svg / images.svg
-- **PNG images**:
-    -  [webapp root] / webapp / png / images.png
-- **JPG images**:
-    -  [webapp root] / webapp / jpg / images.jpg
-- **PDF files**:
-    -  [webapp root] / webapp / pdf / files.pdf
+    - [server_root] / go / src / github.com / [Your_Github_User] / tserver / main.go
+- **Webapp files**:
+    - [server_root] / webapp / github.com / [Your_Github_User] / [ web_app_folders ]
+    - Follow instructions of repository https://github.com/tcarvi/localhost
 
-#### Obs.:
-- To run on localhost, you must edit your hosts file (/etc/hosts in linux):
+#### Container and/or Virtual machine configurations:
+- You must have **golang tools** installed
+- **$GOPATH** must be set to [server_root]/go
+- **$GOBIN** must be set to $GOPATH/bin
+- **$GOBIN** must be in your PATH variable
+- Example of commands:
+```
+# Golang workspace variables  
+export GOPATH=[server_root]/go
+export GOBIN=$GOPATH/bin
+
+# Path for golang development tools
+# Verify if /usr/go/bin is set. If not, add it.
+export PATH=/usr/local/go/bin:$PATH
+# Make your golang projects to be executed outside its src directory.
+export PATH=$GOBIN:$PATH
+```  
+
+#### Server Initialization:
+- Go to tserver.go directory
+- Execute: ```go install```
+- Inside the root of the webapp directory, execute: ```./tserver```
+
+#### Test on localhost:
+- Add a line for your [hostname], in your hosts file (/etc/hosts in linux):
 ```
 127.0.0.1           localhost
 ::1                 localhost
 [hostname].com      localhost:8080
 ```
+- Go to [server_root]/webapp/github.com/[Your_Github_User]/ 
+- Clone a WebApp template inside this directory: git clone https://github.com/tcarvi/localhost.git
+- Follow instructions of repository https://github.com/tcarvi/localhost
