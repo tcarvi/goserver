@@ -40,4 +40,4 @@ export PATH=$GOBIN:$PATH
 ```
 - Go to [server_root]/webapp/github.com/[Your_Github_User]/ 
 - Clone a WebApp template inside this directory: git clone https://github.com/tcarvi/localhost.git
-- Follow instructions of repository https://github.com/tcarvi/localhost
+- Follow instructions from https://github.com/tcarvi/localhost
