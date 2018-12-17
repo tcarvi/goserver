@@ -6,7 +6,7 @@ Minimum Server written in golang
     - [server_root] / go / src / github.com / [Your_Github_User] / tserver / main.go
 - **Webapp files**:
     - [server_root] / webapp / github.com / [Your_Github_User] / [ web_app_folders ]
-    - For [web_app_folders] pattern, follow instructions of repository https://github.com/tcarvi/localhost
+    - For [web_app_folders] pattern, follow instructions from https://github.com/tcarvi/localhost
 
 #### Container and/or Virtual machine configurations:
 - You must have **golang tools** installed
