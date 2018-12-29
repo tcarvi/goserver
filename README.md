@@ -29,7 +29,7 @@ export PATH=$GOBIN:$PATH
 #### Server Initialization:
 - Go to tserver.go directory
 - Execute: ```go install```
-- Inside the root of the webapp directory, execute: ```./tserver```
+- Inside the root of the webapp directory, execute: ```$ tserver```
 
 #### Test on localhost:
 - Add a line for your [hostname], in your hosts file (/etc/hosts in linux):
